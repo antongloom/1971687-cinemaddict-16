@@ -1,6 +1,12 @@
 export const createSiteListTemplate = (task) => {
 
+    
+    
     const {poster, rating, year, time, genre, description, commentCounts, actions} = task
+
+    const activeClassName = (active) => active ? 'film-card__controls-item--active' : ''
+
+
 
     return `<article class="film-card">
         <a class="film-card__link">
@@ -16,9 +22,9 @@ export const createSiteListTemplate = (task) => {
         <span class="film-card__comments">${commentCounts} comments</span>
         </a>
         <div class="film-card__controls">
-        <button class="film-card__controls-item film-card__controls-item--add-to-watchlist film-card__controls-item--active" type="button">Add to watchlist</button>
-        <button class="film-card__controls-item film-card__controls-item--mark-as-watched film-card__controls-item--active" type="button">Mark as watched</button>
-        <button class="film-card__controls-item film-card__controls-item--favorite film-card__controls-item--active" type="button">Mark as favorite</button>
+        <button class="film-card__controls-item film-card__controls-item--add-to-watchlist ${activeClassName(actions.watchlist)}" type="button">Add to watchlist</button>
+        <button class="film-card__controls-item film-card__controls-item--mark-as-watched ${activeClassName(actions.watched)}" type="button">Mark as watched</button>
+        <button class="film-card__controls-item film-card__controls-item--favorite ${activeClassName(actions.favorites)}" type="button">Mark as favorite</button>
         </div>
   </article>`
 };
