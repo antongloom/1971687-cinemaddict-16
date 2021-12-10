@@ -18,11 +18,11 @@ const getDescription = (text,limit) => {
 
 const generatePoster = () => {
   const poster = [
-    '/public/images/posters/made-for-each-other.png',
-    '/public/images/posters/popeye-meets-sinbad.png',
-    '/public/images/posters/sagebrush-trail.png',
-    '/public/images/posters/santa-claus-conquers-the-martians.png',
-    '/public/images/posters/the-dance-of-life.png',
+    '/images/posters/made-for-each-other.png',
+    '/images/posters/popeye-meets-sinbad.png',
+    '/images/posters/sagebrush-trail.jpg',
+    '/images/posters/santa-claus-conquers-the-martians.jpg',
+    '/images/posters/the-dance-of-life.jpg',
   ]
 
   const randomIndex = getRandomInteger(0, poster.length - 1)
@@ -124,10 +124,10 @@ export const generateTask = () => ({
   time: generateTime(),
   genre: generateGenre(),
   description: generateDescription(),
-  commentCounts: generateDescription(),
+  commentCounts: 1,
   actions: {
-    watchlist: true,
-    watched: true,
-    favorites: true
+    watchlist: Boolean(getRandomInteger(0,1)),
+    watched: Boolean(getRandomInteger(0,1)),
+    favorites: Boolean(getRandomInteger(0,1))
   }
 })
