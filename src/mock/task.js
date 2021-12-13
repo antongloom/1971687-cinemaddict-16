@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 const getRandomInteger = (a = 0, b = 1) => {
   const lower = Math.ceil(Math.min(a, b))
   const upper = Math.floor(Math.max(a, b))
@@ -116,6 +118,59 @@ const generateDescription = () => {
 
 
 
+const generateId = () => {
+  const id = [42, 41, 40, 39, 37]
+  const randomId = getRandomInteger(0, id.length - 1)
+  return id[randomId]
+}
+
+const generateAuthor = () => {
+  const author = ["Peter Jackson", "Christopher Nolan", "Robert Zemeckis", "Thomas Harper Ins", "Clint Eastwood"]
+  const randomId = getRandomInteger(0, author.length - 1)
+  return author[randomId]
+}
+
+const generateComment = () => {
+  const comment = [
+    "a film that changed my life, a true masterpiece, post-credit scene was just amazing omg.",
+    "it was very cool.",
+    "I recommend this movie",
+    "this movie is very bad",
+    "my friends liked this movie"
+  ]
+  const randomId = getRandomInteger(0, comment.length - 1)
+  return comment[randomId]
+}
+
+const generateData = () => {
+  const maxDay = 5
+  const days = getRandomInteger(-maxDay, maxDay)
+  return dayjs().startOf('month').add(days, 'day').set('year', 2021).format('YYYY/MM/DD HH:mm:ss')
+}
+
+const generateEmotion = () => {
+  const emotion = ["smile", "sleeping", "puke", "angry"]
+  const randomId = getRandomInteger(0, emotion.length - 1)
+  return emotion[randomId]
+}
+
+const generateComments = () => {
+  return {
+    id: generateId(),
+    author: generateAuthor(),
+    comment: generateComment(),
+    date: generateData(),
+    emotion: generateEmotion()
+  }
+}
+
+const generateCountComments = () => {
+  const randomCount = getRandomInteger(0, 5)
+  const commentCounts = Array.from({length: randomCount}, generateComments)
+  return commentCounts.length
+}
+
+
 export const generateTask = () => ({
   poster: generatePoster(),
   name: generateName(),
@@ -124,7 +179,7 @@ export const generateTask = () => ({
   time: generateTime(),
   genre: generateGenre(),
   description: generateDescription(),
-  commentCounts: 1,
+  commentCounts: generateCountComments(),
   actions: {
     watchlist: Boolean(getRandomInteger(0,1)),
     watched: Boolean(getRandomInteger(0,1)),

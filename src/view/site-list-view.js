@@ -2,7 +2,9 @@ export const createSiteListTemplate = (task) => {
 
     
     
-    const {poster, rating, year, time, genre, description, commentCounts, actions} = task
+    const {poster, rating, year, time, genre, description, commentCounts, actions } = task
+
+    console.log('commentCounts', commentCounts)
 
     const activeClassName = (active) => active ? 'film-card__controls-item--active' : ''
 
