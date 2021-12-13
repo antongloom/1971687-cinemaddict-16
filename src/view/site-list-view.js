@@ -2,9 +2,8 @@ export const createSiteListTemplate = (task) => {
 
     
     
-    const {poster, rating, year, time, genre, description, commentCounts, actions } = task
+    const {title, poster, rating, year, time, genre, description, commentCounts, actions } = task
 
-    console.log('commentCounts', commentCounts)
 
     const activeClassName = (active) => active ? 'film-card__controls-item--active' : ''
 
@@ -12,7 +11,7 @@ export const createSiteListTemplate = (task) => {
 
     return `<article class="film-card">
         <a class="film-card__link">
-        <h3 class="film-card__title">Popeye the Sailor Meets Sindbad the Sailor</h3>
+        <h3 class="film-card__title">${title}</h3>
         <p class="film-card__rating">${rating}</p>
         <p class="film-card__info">
             <span class="film-card__year">${year}</span>

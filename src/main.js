@@ -4,11 +4,12 @@ import {createSiteProfileTemplate} from './view/site-profile-view'
 import {createSiteBtnShowTemplate} from './view/site-btn-show-view'
 import {createSitePopupTemplate} from './view/site-popup-view'
 import {RenderPosition, renserTemplate} from './render.js'
-import {generateTask} from './mock/task.js'
+import {generateTask, generatePopup} from './mock/task.js'
 
 const TASK_COUNT = 5;
 
 const tasks = Array.from({length: TASK_COUNT}, generateTask)
+const popup = generatePopup()
 
 const siteProfileElement = document.querySelector('.header')
 
@@ -30,4 +31,4 @@ renserTemplate(siteBtnShowTemplate, createSiteBtnShowTemplate(), RenderPosition.
 
 const sitePopupTemplate = document.querySelector('.footer')
 
-//renserTemplate(sitePopupTemplate, createSitePopupTemplate(), RenderPosition.BEFOREEND)
+renserTemplate(sitePopupTemplate, createSitePopupTemplate(popup), RenderPosition.BEFOREEND)
