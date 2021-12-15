@@ -11,7 +11,7 @@ const TASK_COUNT = 5;
 const tasks = Array.from({length: TASK_COUNT}, generateTask)
 const popup = generatePopup()
 
-const siteProfileElement = document.querySelector('.header')
+const siteProfileElement = document.querySelector('.header')  
 
 renserTemplate(siteProfileElement, createSiteProfileTemplate(), RenderPosition.BEFOREEND)
 
