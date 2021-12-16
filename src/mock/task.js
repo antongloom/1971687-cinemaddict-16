@@ -191,7 +191,7 @@ export const generatePopup = () => ({
   id: 0,
   comments: Array.from({length: 4}, generateComments),
   film_info: {
-    title: "A Little Pony Without The Carpet",
+    title: generateTitle(),
     alternative_title: "Laziness Who Sold Themselves",
     total_rating: 5.3,
     poster: generatePoster(),
