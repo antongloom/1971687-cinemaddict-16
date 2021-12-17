@@ -4,7 +4,7 @@ import {createSiteProfileTemplate} from './view/site-profile-view'
 import {createSiteBtnShowTemplate} from './view/site-btn-show-view'
 import {createSitePopupTemplate} from './view/site-popup-view'
 import {RenderPosition, rensedTemplate} from './render.js'
-import {generateTask, generatePopup} from './mock/task.js'
+import {generateTask, generatePopup, arrayComentsTask} from './mock/task.js'
 import {generateFilter} from './mock/filter.js'
 
 const TASK_COUNT = 20
@@ -12,6 +12,7 @@ const TASK_COUNT_PER_STEP = 5
 
 const tasks = Array.from({length: TASK_COUNT}, generateTask)
 const popup = generatePopup()
+const array = arrayComentsTask()
 
 const siteProfileElement = document.querySelector('.header')  
 
@@ -53,4 +54,4 @@ if (tasks.length > TASK_COUNT_PER_STEP) {
 
 const sitePopupTemplate = document.querySelector('.footer')
 
-//rensedTemplate(sitePopupTemplate, createSitePopupTemplate(popup), RenderPosition.BEFOREEND)
+rensedTemplate(sitePopupTemplate, createSitePopupTemplate(popup, array), RenderPosition.BEFOREEND)

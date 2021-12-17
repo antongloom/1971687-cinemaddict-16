@@ -171,6 +171,13 @@ const generateCountComments = () => {
 }
 
 
+
+export const arrayComentsTask = () => {
+  return Array.from({length: 4}, generateComments)
+}
+
+
+
 export const generateTask = () => ({
   poster: generatePoster(),
   title: generateTitle(),
@@ -188,7 +195,7 @@ export const generateTask = () => ({
 })
 
 export const generatePopup = () => ({
-  id: 0,
+  id: [42, 41, 40],
   comments: Array.from({length: 4}, generateComments),
   film_info: {
     title: generateTitle(),

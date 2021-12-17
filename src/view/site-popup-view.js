@@ -16,11 +16,12 @@ const createFilterItemTemplate = (commentItem) => {
 }
 
 
-export const createSitePopupTemplate = (popup) => {
+export const createSitePopupTemplate = (popup, array) => {
 
-  const {comments, film_info, user_details } = popup
-  const {watchlist, already_watched, watching_date, favorite} = user_details
-  const commentItemsTemplate = comments.map((comment) => createFilterItemTemplate(comment)).join('')
+  const {id: idComments, comments, film_info, user_details } = popup
+  const {watchlist, already_watched, favorite} = user_details
+  const arrayComments = array.filter(obj => idComments.some(item => item === obj.id))
+  const commentItemsTemplate = arrayComments.map((comment) => createFilterItemTemplate(comment)).join('')
   const activeClassName = (active) => active ? 'film-details__control-button--active' : ''
   
   return `<section class="film-details">
