@@ -6,7 +6,6 @@ const createFilterItemTemplate = (filter) => {
 
 export const createSiteMenuTemplate = (generateFilter, tasks) => {
   const filterItemsTemplate = generateFilter(tasks).map((filter) => createFilterItemTemplate(filter)).join('')
-  console.log(filterItemsTemplate)
   return `<nav class="main-navigation">
     <div class="main-navigation__items">
       <a href="#all" class="main-navigation__item main-navigation__item--active">All movies</a>
